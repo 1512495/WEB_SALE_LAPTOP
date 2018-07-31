@@ -1,0 +1,187 @@
+{{#section 'title'}}
+    Trang chủ
+{{/section}}
+    <div class="slider-area">
+        <!-- Slider -->
+        <div class="block-slider block-slider4">
+            <ul class="" id="bxslider-home4">
+                {{#each slides}}
+                <li>
+                    <img src="/images/{{hinh_anh}}" alt="" style="width:100%">
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <!-- ./Slider -->
+    </div>
+    <!-- End slider area -->
+
+    <div class="promo-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo1">
+                        <i class="fa fa-refresh"></i>
+                        <p>30 Days return</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo2">
+                        <i class="fa fa-truck"></i>
+                        <p>Free shipping</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo3">
+                        <i class="fa fa-lock"></i>
+                        <p>Secure payments</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo promo4">
+                        <i class="fa fa-gift"></i>
+                        <p>New products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End promo area -->
+    <!--  -->
+    <div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="latest-product">
+                        <h2 class="section-title">Latest Products</h2>
+                        <div class="product-carousel">
+                            <!--  -->
+                            {{#each productNew}}
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="/images/{{hinh_anh}}" alt="">
+                                    <div class="product-hover">
+                                        <a href="" class="add-to-cart-link">
+                                           <form action="/cart/add" method="post">
+                                                <input type="hidden" name="quantity" value="1">
+                                                <input type="hidden" name="proId" value="{{id}}">
+                                                <button type="submit" class="chr-cart pchr-cart">Mua
+                                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+                                        </a>
+                                        <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}" class="view-details-link">
+                                            <i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+
+                                <h2>
+                                    <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">{{ten}}</a>
+                                </h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>{{number_format gia}}</ins>
+                                    <del>{{number_format gia_km}}</del>
+                                </div>
+                            </div>
+                            {{/each}}
+                            <!--  -->
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{!--  --}}
+    <div class="product-widget-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2>Mới nhất</h2>
+                        {{#each productNew}}
+                            <div class="single-wid-product">
+                                <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">
+                                    <img src="/images/{{hinh_anh}}" alt="" class="product-thumb">
+                                </a>
+                                <h2>
+                                    <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">{{ten}}</a>
+                                </h2>
+                                <div class="product-wid-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-wid-price">
+                                    <ins>{{number_format gia}}</ins>
+                                    <del>{{number_format gia_km}}</del>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2>Xem nhiều nhất</h2>
+                        {{#each productView}}
+                            <div class="single-wid-product">
+                                <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">
+                                    <img src="/images/{{hinh_anh}}" alt="" class="product-thumb">
+                                </a>
+                                <h2>
+                                    <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">{{ten}}</a>
+                                </h2>
+                                <div class="product-wid-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-wid-price">
+                                    <ins>{{number_format gia}}</ins>
+                                    <del>{{number_format gia_km}}</del>
+                                </div>  
+                            </div>
+                        {{/each}}                       
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2>Bán chạy nhất</h2>
+                        {{#each productSell}}
+                            <div class="single-wid-product">
+                                <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">
+                                    <img src="/images/{{hinh_anh}}" alt="" class="product-thumb">
+                                </a>
+                                <h2>
+                                    <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">{{ten}}</a>
+                                </h2>
+                                <div class="product-wid-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-wid-price">
+                                    <ins>{{number_format gia}}</ins>
+                                    <del>{{number_format gia_km}}</del>
+                                </div>
+                            </div>
+                        {{/each}} 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End product widget area -->
+
+
+     

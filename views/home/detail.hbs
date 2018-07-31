@@ -1,0 +1,197 @@
+{{#with product}}
+
+
+<div class="container-fluid" style="width: 90%;height: 1650px;">
+    <div class="detail-name">
+        {{ten}}
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5">
+            <img src="/images/{{hinh_anh}}" alt="" class="detail-image">
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="row" style="height: 105px;">
+                <div class="detail-cachmua mua-online col-md-6 col-sm-6 col-xs-6">
+                    Mua ngay {{number_format gia_km}}
+                    <br>
+                    <input type="radio" name="radio-purchase" value="" checked id="muaonline">
+                </div>
+                <div class="detail-cachmua mua-giathuong col-md-6 col-sm-6 col-xs-6">
+                    Giá thường {{number_format gia}}
+                    <br>
+                    <input type="radio" disabled value="" id="muagiathuong">
+                </div>
+            </div>
+
+            <div class="khuyenmai">
+                <header>
+                    <b>Khuyến mãi đặc biệt (Số lượng có hạn)</b>
+                </header>
+                <div>
+                    <br>
+                    <i>GIÁ ĐẶC BIỆT KHI MUA ONLINE ĐẾN 02/09: 13,690,000đ</i>
+                    <br>
+                    <ul>
+                        <li class="detail-khuyenmai">Tặng PMH 300,000đ</li>
+                        <li class="detail-khuyenmai">Tặng Balo Laptop</li>
+                        <li class="detail-khuyenmai">Tặng Voucher 700,000đ mua Office 365</li>
+                        <li class="detail-khuyenmai">Giảm ngay 2% khi Trả góp</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-md-6 col-sm-6 col-xs-6" style="margin-left: 120px">
+                    <form action="/cart/add" method="post">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="proId" value="{{id}}">
+                        <button type="submit" class="chr-cart pchr-cart btn-lg">Mua ngay
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <p>
+                <b>Tìm shop còn hàng gần bạn</b>
+            </p>
+            <div class="form-group">
+                <select class="form-control" id="sel1">
+                    <option>Hồ Chí Minh</option>
+                    <option>Đà Nẵng</option>
+                    <option>Hà Nội</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" placeholder="Nhập quận/huyện">
+            </div>
+        </div>
+    </div>
+    {{/with}}
+
+    <!-- Start same product -->
+    <div style="width: 100%;height: 400px;clear: both;">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" href="#same-type"> Các máy tính cùng loại</a>
+            </li>
+            <li>
+                <a href="#same-producer" data-toggle="tab"> Các máy tính cùng nhà sản xuất</a>
+            </li>
+        </ul>
+
+        <div class="tab-content row">
+            <div id="same-type" class="tab-pane in active fade col-sm-12 col-md-12">
+                <div>
+                    {{#each cung_loais}}
+                    <div class="single-product" style="margin-left:30px">
+                        <div class="product-f-image">
+                            <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">
+                                <img class="detail-samebranch" src="/images/{{hinh_anh}}" alt="ok">
+                            </a>
+                        </div>
+                        <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">
+                            <h5>{{ten}}</h5>
+                        </a>
+                        <div class="product-carousel-price">
+                            <ins>{{number_format gia}}</ins>
+                            <del>{{number_format gia_km}}</del>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+
+            <div id="same-producer" class="tab-pane fade">
+                <div>
+                    {{#each cung_nsxs}}
+                    <div class="single-product" style="margin-left:30px">
+                        <div class="product-f-image">
+                            <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">
+                                <img class="detail-samebranch" src="/images/{{hinh_anh}}" alt="">
+                            </a>
+                        </div>
+                        <a href="/detail?id={{id}}&id_loai={{id_loai}}&id_nsx={{id_nsx}}">
+                            <h5>{{ten}}</h5>
+                        </a>
+                        <div class="product-carousel-price">
+                            <ins>{{number_format gia}}</ins>
+                            <del>{{number_format gia_km}}</del>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+        <!-- End same product -->
+
+        {{#with product}}
+        <!-- start thông số kỹ thuật -->
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <div class="detail-name" style="font-size: 18px;">
+                    Thông số kỹ thuật của {{ten}}
+                </div>
+                <hr class="thanhngang">
+
+
+                <ul class="list-group">
+                    <li class="list-group-item">CPU : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>
+                            <a href="https://vi.wikipedia.org/wiki/Intel" target="_blank">Intel, Core i5</a>
+                        </span>
+                    </li>
+                    <li class="list-group-item">RAM :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 GB,
+                        DDR4
+                    </li>
+                    <li class="list-group-item">Ổ cứng :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>
+                            <a href="https://en.wikipedia.org/wiki/HDD" target="_blank">HDD, 500 GB</a>
+                        </span>
+                    </li>
+                    </li>
+                    <li class="list-group-item">Màn hình :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15.6 inch , 1366 x 768 pixels</li>
+                    <li class="list-group-item">Card màn hình :
+                        <span>
+                            <a href="https://fptshop.com.vn/tin-tuc/danh-gia/tim-hieu-ve-card-do-hoa-cua-amd-56464" target="_blank">AMD Radeon Graphics, Card rời</a>
+                        </span>
+                    </li>
+                    <li class="list-group-item">Cổng kết nối : &nbsp;&nbsp;&nbsp; LAN : 10/100Mbps WIFI : 802.11a</li>
+                    <li class="list-group-item">Hệ điều hành : &nbsp;&nbsp;
+                        <span>
+                            <a href="https://fptshop.com.vn/tin-tuc/tin-moi/tong-hop-cac-he-dieu-hanh-thong-dung-tren-laptop-56318" target="_blank">Ubuntu Linux 16.04</a>
+                        </span>
+                    </li>
+                    <li class="list-group-item">Trọng lượng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3kg</li>
+                    <li class="list-group-item">Chipset đồ họa : AMD Radeon Graphics</li>
+                    <li class="list-group-item">Cảm ứng: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Không</li>
+                </ul>
+
+            </div>
+            <!--  -->
+            <div class="col-md-4 col-sm-4 col-xs-8">
+                <img src="asserts/image/thongso.png" style="width: 350px;height:400px; margin-top: 77px;">
+            </div>
+        </div>
+        <!--  -->
+        <div>
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" id="comment" style="width: 95%" rows="5">
+                            
+                        </textarea>
+                    <br>
+                    <button type="button" class="btn btn-danger" style="text-align: right;">Gởi câu hỏi</button>
+                </div>
+            </form>
+            <br><br><br>
+        </div>
+    </div>
+
+</div>
+
+
+{{/with}}

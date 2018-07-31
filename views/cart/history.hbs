@@ -1,0 +1,72 @@
+</br></br></br></br>
+
+<!--checkout-->
+<div class="innerf-pages section">
+    <div class="container">
+        <div class="privacy about">
+            
+            <div class="checkout-right">
+                <h4>Lịch sử mua hàng
+                </h4>
+                {{#each data.orders}}
+                <h4>Hóa đơn ngày: 
+                    <span>{{time}}</span>
+                </h4>
+                <table class="timetable_sub table-responsive" width="60%">
+                    <thead>
+                        <tr>
+                            {{!-- <th>STT</th> --}}
+                            <th>Hình ảnh</th>
+                            <th>Tên SP</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each items}}
+                        <tr class="rem1">
+                            {{!-- <td class="invert">{{Product.id}}</td> --}}
+                            <td class="invert-image">
+                                <a href="product/detail/{{id_sach}}">
+                                    <img src="/images/{{hinh_anh}}" alt=" " class="img-responsive">
+                                </a>
+                            </td>
+                            <td class="invert">
+                                <a href="product/detail/{{id}}">
+                                    {{id_san_pham}}
+                                </a>
+                            </td>
+                            <td class="invert">{{so_luong}}</td>
+                            <td class="invert">{{number_format gia}}</td>
+
+                            {{#if ../trang_thai}}
+                                {{#if ../trang_thai2}}
+                                    <td class="invert" style="border:1px solid black;background-color: green">Đã giao</td>
+                                {{else}}
+                                        <td class="invert" style="border:1px solid black;background-color: yellow">Đang giao</td>
+                                {{/if}}
+                            {{else}}
+                                <td class="invert" style="border:1px solid black;background-color: red">Chưa giao</td> 
+                            {{/if}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                            <tr>
+                                <th>Tổng tiền:</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                {{!-- {{#with }} --}}
+                                <td>{{number_format total}}</td>
+                                {{!-- {{/with}} --}}
+                            </tr>
+                    </tbody>
+                </table>
+                <br><br>    
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>

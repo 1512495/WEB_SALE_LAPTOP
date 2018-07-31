@@ -1,0 +1,23 @@
+{{#section 'title'}}
+<b>Thêm loại</b>
+{{/section}} {{#if vm.showResult}}
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>OK!</strong> Type added.
+</div>
+{{/if}}
+
+<form action="" method="POST" role="form">
+	<div class="form-group">
+		<label for="">Tên loại</label>
+		<input type="text" class="form-control" id="" name="ten" placeholder="Nhập tên ">
+	</div>
+	<a class="btn btn-default" href="/admin/type" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		Back
+	</a>
+	<button class="btn btn-primary" type="submit">
+		<span class="glyphicon glyphicon-ok"></span>
+		Add
+	</button>
+</form>

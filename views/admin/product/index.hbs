@@ -1,0 +1,63 @@
+{{#section 'title'}}
+    <b>Product</b>
+{{/section}}
+
+<div class="container" style="width: 100%">
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<a class="btn btn-success" href="product/add" role="button">
+				<span class="glyphicon glyphicon-plus"></span>
+				Add
+			</a>
+		</div>
+	</div>
+	<div class="row">
+		<div >
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>ID Loại</th>
+						<th>ID NSX</th>
+						<th>Mô tả</th>
+						<th>Giá</th>
+						<th>Giá KM</th>
+						<th>Hình</th>
+						<th>Số lượt xem</th>
+						<th>Số lượt bán</th>
+						<th>Ngày nhập</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each vm.products}}
+					<tr>
+						<td>{{id}}</td>
+						<td>{{ten}}</td>
+						<td>{{id_loai}}</td>
+						<td>{{id_nsx}}</td>
+						<td>{{mota}}</td>
+						<td>{{number_format gia}}</td>
+						<td>{{number_format gia_km}}</td>
+						<td><img src="/images/{{hinh_anh}}" width="100px" height="100px"></td>
+						<td>{{so_luot_xem}}</td>
+						<td>{{so_luot_ban}}</td>
+						<td>{{ngay_nhap}}</td>
+						<td class="text-right">
+							<a class="btn btn-default btn-xs" href="/admin/product/delete?id={{id}}" role="button" onclick="return confirm('Bạn có muốn xóa hay không')">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+							<a class="btn btn-default btn-xs" href="/admin/product/update?id={{id}}" role="button">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</div>
+<br><br><br><br>

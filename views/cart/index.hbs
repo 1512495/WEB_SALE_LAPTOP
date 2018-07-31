@@ -1,0 +1,100 @@
+{{#section 'title'}}
+    Cart
+{{/section}}
+
+{{#section 'js'}}
+<script type="text/javascript">
+	$('.removeItem').on('click', function() {
+	    var id = $(this).data('proid');
+	    $('#txtP').val(id);
+	    $('#frmRemoveItem').submit();
+	});
+</script>
+{{/section}}
+
+<form id="frmRemoveItem" method="post" action="/cart/remove">
+	<input type="hidden" name="proId" id="txtP">
+</form>
+
+<div class="container">
+	<br>
+	<h4><a href="/"> Tiếp tục mua sắm</a></h4>
+	<div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Quantity</th>
+					<th>Amount</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				 {{#each data.items}}
+				<tr>
+					<td>{{Product.ten}}</td>
+					<td>{{product.gia}}</td>
+					<td>{{Quantity}}</td>
+					<td>{{ Amount}}</td>
+					<td class="text-right">
+						<a data-proid="{{product.id}}" class="btn btn-danger btn-xs removeItem" href="javascript:;" role="button">
+							<span class="glyphicon glyphicon-remove"></span>
+						</a>
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>{{ data.moneyTotal}}</td>
+					<td>&nbsp;</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+
+	<br><br>
+	<div class="col-md-4 address_form ">
+        <h4>Địa chỉ thanh toán</h4>
+            {{#with data.user}}
+           <form action="/cart/payment" method="post" class="creditly-card-form shopf-sear-headinfo_form">
+                <div class="creditly-wrapper wrapper">
+                    <div class="information-wrapper">
+                        <div class="first-row form-group">
+                            <div class="controls">
+                                <label class="control-label">Họ tên: </label>
+                                <input class="billing-address-name form-control" type="text" name="ho_ten_nguoi_nhan" placeholder="Full name" value="{{ten}}" required>
+                            </div>
+                            <div class="controls">
+                                <label class="control-label">email: </label>
+                                <input class="billing-address-name form-control" type="text" name="email_nguoi_nhan" placeholder="Email" value="{{email}}" required>
+                            </div>
+                            <div class="card_number_grids">
+                                <div class="card_number_grid_left">
+                                    <div class="controls">
+                                        <label class="control-label">Số điện thoại:</label>
+                                        <input class="form-control" type="text" placeholder="Mobile number" name="so_dien_thoai_nguoi_nhan" value="{{sdt}}" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="clear"> </div>
+                            </div>
+                            <div class="controls">
+                                <label class="control-label">Địa chỉ: </label>
+                                <input class="form-control" type="text" placeholder="Địa chỉ" name="dia_chi_nguoi_nhan" value="{{dia_chi}}" required>
+                            </div>
+                        </div>
+                        <button class="submit check_out">Đặt hàng</button>
+                    </div>
+                </div>
+            </form>
+        {{/with}}
+    </div>
+</div>	
+</div>
+<br><br><br><br>

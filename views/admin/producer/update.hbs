@@ -1,0 +1,31 @@
+{{#section 'title'}}
+    <b>Update Producer</b>
+{{/section}}
+
+{{#if showResult}}
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>OK!</strong> Producer Updated.
+</div>
+{{/if}}
+
+{{#with vm.producer}}
+	<form action="" method="POST" role="form">
+	<div class="form-group">
+		<label for="">ID</label>
+		<input type="text" class="form-control" name="id" readonly value="{{id}}">
+	</div>
+	<div class="form-group">
+		<label for="">Producer Name</label>
+		<input type="text" class="form-control" value="{{ten}}" name="ten">
+	</div>
+	<a class="btn btn-default" href="/admin/producer" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		Back
+	</a>
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-ok"></span>
+		Update
+	</button>
+</form>
+{{/with}}

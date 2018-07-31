@@ -1,0 +1,63 @@
+{{#section 'title'}}
+    <b>Update Product</b>
+{{/section}}
+
+{{#if showResult}}
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>OK!</strong> Product updated.
+</div>
+{{/if}}
+
+{{#with vm.product}}
+<div class="container-fluid">
+	<form action="add" method="POST" role="form" enctype="multipart/form-data">
+		<div class="form-group">
+			<label for="">Name</label>
+			<input type="text" class="form-control" name="ten" value="{{ten}}">
+		</div>
+		<div class="form-group">	
+			<label for="">Loại</label>
+			<select name="id_loai" class="form-control">
+				{{#each vm.id_loais}}
+					<option value="{{id}}">{{ten}}</option>
+				{{/each}}	
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="">NSX</label>
+			<select name="id_nsx" class="form-control">
+				{{#each vm.id_nsxs}}
+					<option value="{{id}}">{{ten}}</option>
+				{{/each}}			
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="">Mô tả</label>
+			<textarea name="mo_ta" class="form-control">{{mo_ta}}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="">Giá</label>
+			<input type="number" class="form-control" name="gia" value="{{gia}}">
+		</div>
+		<div class="form-group">
+			<label for="">Giá khuyến mãi</label>
+			<input type="number" class="form-control" name="gia_km" value="{{gia_km}}">
+		</div>
+		<div class="form-group">
+			<label for="">Hình ảnh</label>
+			<input type="file" class="form-control" name="hinh_anh">
+		</div>
+		<a class="btn btn-default" href="/admin/product" role="button">
+			<span class="glyphicon glyphicon-arrow-left"></span>
+			Back
+		</a>
+		<button type="submit" class="btn btn-primary">
+			<span class="glyphicon glyphicon-ok"></span>
+			Update
+		</button>
+		<br><br><br><br>
+	</form>
+</div>
+{{/with}}
+

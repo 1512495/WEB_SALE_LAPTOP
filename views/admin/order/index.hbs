@@ -1,0 +1,62 @@
+{{#section 'title'}}
+<b>Type</b>
+{{/section}}
+
+<div class="container" style="margin-top: 20px">
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<a class="btn btn-success" href="./order/create" role="button">
+				<span class="glyphicon glyphicon-plus"></span>
+				Add
+			</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Ngày đặt</th>
+						<th>Tổng tiền</th>
+						<th>Trạng thái</th>
+						<th>Thanh toán</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each vm.orders}}
+					<tr>
+						<td>{{id}}</td>
+						<td>{{ngay_dat}}</td>
+						<td>{{tong_tien}}</td>
+						<td>{{trang_thai}}</td>
+						<td>{{thanh_toan}}</td>
+						<td class="text-right">
+							<a class="btn btn-default btn-xs" href="/admin/order/delete?id={{id}}" role="button" onclick="return confirm('Bạn có muốn xóa loại sản phẩm này không?)">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+							<a class="btn btn-default btn-xs" href="/admin/order/update?id={{id}}" role="button">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+
+<script>
+	var elements = $('td');
+	for (var i = 0; i < elements.length; i++) {
+		if (elements[i].innerHTML == "Chưa thanh toán" || elements[i].innerHTML == "Chưa giao hàng") {
+			$(elements[i]).css("color", "red");
+		}
+		if (elements[i].innerHTML == "Đã thanh toán" || elements[i].innerHTML == "Đã giao hàng") {
+			$(elements[i]).css("color", "green");
+		}
+	}
+</script>

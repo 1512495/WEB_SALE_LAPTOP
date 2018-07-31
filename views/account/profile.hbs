@@ -1,0 +1,40 @@
+{{#if showResult}}
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>OK!</strong> Profile updated.
+</div>
+{{/if}} {{#with profile}}
+<div class="well col-md-4" style="margin-top: 25px; margin-left: 30%">
+	<form action="" method="POST" role="form">
+		<div class="row" style="margin-top: 20px; margin-left: 30%">
+			<div class="col-md-3">
+				<label>Email</label>
+				<input type="text" value="{{email}}" name="email">
+			</div>
+		</div>
+		<div class="row" style="margin-top: 20px; margin-left: 30%">
+
+			<div class="col-md-5">
+				<label>Số điện thoại</label>
+				<input type="text" value="{{sdt}}" name="sdt">
+			</div>
+		</div>
+		<div class="row" style="margin-top: 20px; margin-left: 30%">
+
+			<div class="col-md-3">
+				<label>Địa chỉ</label>
+				<input type="text" value="{{dia_chi}}" name="dia_chi">
+			</div>
+		</div>
+		<div class="row" style="margin-top: 20px; margin-left: 30%">
+
+			<div class="col-md-3">
+				<label>Password</label>
+				<input type="password" value="" name="password">
+			</div>
+		</div>
+		<div style="margin-top: 25px; margin-left:40%">
+			<button class="btn btn-primary">Update</button>
+		</div>
+	</form>
+	{{/with}}

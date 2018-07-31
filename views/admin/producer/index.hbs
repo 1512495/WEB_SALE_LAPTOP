@@ -1,0 +1,43 @@
+{{#section 'title'}}
+    <b>Producer</b>
+{{/section}}
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>name</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each vm.producers}}
+					<tr>
+						<td>{{id}}</td>
+						<td>{{ten}}</td>
+						<td class="text-right">
+							<a class="btn btn-default btn-xs" href="/admin/producer/delete?id={{id}}" role="button" onclick="return confirm('Bạn có muốn xóa hay không')">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+							<a class="btn btn-default btn-xs" href="/admin/producer/update?id={{id}}" role="button">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+			<a class="btn btn-success" href="producer/add" role="button">
+				<span class="glyphicon glyphicon-plus"></span>
+				Add
+			</a>
+		</div>
+	</div>
+</div>
